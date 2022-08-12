@@ -1,5 +1,7 @@
 # BookTrackingWeb
 
+OLD Project. https://github.com/HarshdeepKaurDhunna/BookTracking.git
+
 #Issue When running add migrations command got the below issue unable to create common migeration folder
 change your migrations assembly by using dbcontextoptionsbuilder. e.g. options.usesqlserver(connection, b => b.migrationsassembly("booktrackingweb")). by default, the migrations assembly is the assembly containing the dbcontext.
 
