@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTrackingWebLibrary", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTrackingWebData", "BookTrackingWebData\BookTrackingWebData.csproj", "{AC389B29-7DB6-4F68-8CBC-9C662FB0C7A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTrackingWeb-Test", "BookTrackingWeb-Test\BookTrackingWeb-Test.csproj", "{B06EBAFF-DD26-4594-9112-E8B0F60981E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AC389B29-7DB6-4F68-8CBC-9C662FB0C7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC389B29-7DB6-4F68-8CBC-9C662FB0C7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC389B29-7DB6-4F68-8CBC-9C662FB0C7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B06EBAFF-DD26-4594-9112-E8B0F60981E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06EBAFF-DD26-4594-9112-E8B0F60981E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06EBAFF-DD26-4594-9112-E8B0F60981E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06EBAFF-DD26-4594-9112-E8B0F60981E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
