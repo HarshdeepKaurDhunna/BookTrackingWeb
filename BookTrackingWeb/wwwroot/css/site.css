@@ -1,71 +1,101 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
+/* Font Import */
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800'); */
+/* Font Import */
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.main-menu {
+    background: #1a2942;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    color: #ffffff !important;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.nav-anchor {
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #ffffff;
+    border-color: #ffffff;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, form, label, table, tbody, tfoot, thead, tr, th, td, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+/* Dashboard */
+.db-box {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    padding: 30px;
+}
+
+    .db-box:after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 100%;
+        background: #00bbb5;
+        left: 0;
+        top: 0;
+    }
+
+    .db-box h2 {
+        font-size: 15px;
+        margin-bottom: 5px;
+        color: #777;
+    }
+
+.fig-facts {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cl2:after {
+    background: #f47121;
+}
+
+.cl3:after {
+    background: #0085af;
+}
+
+.cl4:after {
+    background: #616161;
+}
+
+.db-row {
+    height: 40%;
+    margin-bottom: 10px
 }
