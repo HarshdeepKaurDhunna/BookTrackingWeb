@@ -1,7 +1,9 @@
+using BookTrackingWebData.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +28,21 @@ namespace BookTrackingWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //For Windows Configerations
+            string dbConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<BookTrackingWebContext>(options => 
+            options
+             .UseSqlServer(dbConnectionString,
+                 b => b.MigrationsAssembly("BookTrackingWebData"))
+             );
+
+            //For Mac Configerations
+           /* services.AddDbContext<BookTrackingWebContext>(options =>
+            options
+             .UseSqlite(dbConnectionString,
+                 b => b.MigrationsAssembly("BookTrackingWebData"))
+             );*/
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
