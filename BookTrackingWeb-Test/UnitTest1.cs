@@ -1,6 +1,8 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
 using Assert = Xunit.Assert;
 
@@ -12,11 +14,11 @@ namespace Book_Tracking_Application_Test
         private readonly HttpClient _client;
 
 
-        /*public UnitTest()
+        public UnitTest()
         {
-            var appFactory = new WebApplicationFactory<Startup>();
+            var appFactory = new WebApplicationFactory<BookTrackingWebAPI.Startup>();
             _client = appFactory.CreateClient();
-        }*/
+        }
 
         [TestMethod]
         public void TestMethod()
