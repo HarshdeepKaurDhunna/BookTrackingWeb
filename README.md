@@ -13,3 +13,7 @@ Unable to create an object of type 'BookTrackingWebContext'. For the different p
 Command for migerations: dotnet ef migrations add InitDatabase --project BookTrackingWebData -s BookTrackingWeb -c BookTrackingWebContext --verbose 
 Command for Database update: dotnet ef database update InitDatabase --project BookTrackingWebData -s BookTrackingWeb -c BookTrackingWebContext --verbose
 
+We were unable to add a WebAPI project inside our existing project because it was already a WebMVC project. To fix this, we have created a new Web-API project and added all our changes from earlier project.
+
+During this, we also faced migration issues as it was referring to old project. So cleaned up migrations, deleted all the residual files, restarted IDE and tried again which fixed migration problems.
+
