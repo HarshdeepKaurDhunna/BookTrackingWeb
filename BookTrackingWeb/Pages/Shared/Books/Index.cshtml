@@ -1,0 +1,50 @@
+﻿@page
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div  class="grid-box">
+    <div class="grid-heading">
+     <h4>Books List</h4>
+    </div>
+  <div class="grid-inner">
+   
+    <!-- Form Row Ends -->
+
+    <div class="form-row">
+      <div class="row">
+        <div class="col-md-12 col-xs-12 table-col">
+          <div class="table-responsive">
+             <table class=" table table-bordered table-stripped">
+              <thead>
+                                <tr>
+                                    <th>ISBN</th>
+                                    <th>Author</th>
+                                    <th>Title</th>
+                                    <th>CategoryType </th>
+                                    <th>Category Name</th>
+                                    <th></th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < 4; i++)
+                                {
+                                    
+                                    <tr>
+                                        
+                                    </tr>
+                                }
+                            </tbody>
+            </table>
+          </div>
+          <!-- Table Ends -->
+        </div>
+      </div>
+    </div>
+    <!-- Form Row Ends -->
+
+  </div>
+  <!-- Grid Inner Ends -->
+
+</div>
