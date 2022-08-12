@@ -99,3 +99,82 @@ body {
     height: 40%;
     margin-bottom: 10px
 }
+
+.db-row {
+    height: 40%;
+    margin-bottom: 10px
+}
+
+.grid-heading {
+    display: inline-block;
+    width: 100%;
+    background: #c6c9d0;
+    position: relative;
+    padding: 10px 15px;
+    min-height: 40px;
+}
+
+    .grid-heading h4 {
+        color: #535a68;
+        font-size: 15px;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+.grey-btn {
+    background: #767571;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 15px
+}
+
+table {
+    background: #fff;
+    width: 100% !important;
+    /margin:0 0 15px !important;
+    / margin: 0 0 0px !important;
+}
+
+    table th {
+        background: #1a2942;
+        font-size: 0.8rem;
+        color: #fff;
+        font-weight: 600;
+    }
+
+/*table Common */
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th, datatable-header-cell, datatable-body-cell {
+    border: none;
+    border-right: 1px solid #ddd;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 8px 8px 8px !important;
+}
+
+    .table-bordered > tbody > tr > td:first-child, .table-bordered > tfoot > tr > td:first-child, datatable-header-cell:first-child, datatable-body-cell:first-child {
+        border-left: 1px solid #ddd;
+    }
+
+.table-bordered > tbody > tr:last-child > td {
+    border-bottom: 1px solid #ddd;
+}
+
+.grid-box {
+    display: inline-block;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+    margin: 0 0 15px;
+}
+
+.grid-inner {
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+}
+
+.form-row {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 0px 0;
+}
