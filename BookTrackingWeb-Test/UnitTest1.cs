@@ -1,14 +1,47 @@
-﻿using System;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
+using Assert = Xunit.Assert;
 
-namespace BookTrackingWeb_Test
+namespace Book_Tracking_Application_Test
 {
-    public class UnitTest1
+    [TestClass]
+    public class UnitTest
     {
-        [Fact]
-        public void Test1()
+        private readonly HttpClient _client;
+
+
+        /*public UnitTest()
+        {
+            var appFactory = new WebApplicationFactory<Startup>();
+            _client = appFactory.CreateClient();
+        }*/
+
+        [TestMethod]
+        public void TestMethod()
         {
 
         }
+
+        [Theory]
+        [InlineData("/")]
+        [InlineData("/Index")]
+        [InlineData("/About")]
+        [InlineData("/Privacy")]
+        [InlineData("/Contact")]
+        public async Task GetEndpointsReturnSuccessAndCorrectContentType(string url)
+        {
+
+            // Act
+            var response = await _client.GetAsync(url);
+
+            // Assert
+            response.EnsureSuccessStatusCode(); // Status Code 200-299
+            Assert.Equal("text/html; charset=utf-8",
+                response.Content.Headers.ContentType.ToString());
+        }
+
+
     }
 }
