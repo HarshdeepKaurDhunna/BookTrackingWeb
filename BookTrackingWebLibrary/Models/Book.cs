@@ -24,5 +24,7 @@ namespace BookTrackingWebLibrary
         public DateTime BookAddedDate { get; set; } //Date that the book was added 
 
         public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }

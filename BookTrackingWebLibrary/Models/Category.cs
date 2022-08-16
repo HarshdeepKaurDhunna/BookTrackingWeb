@@ -16,6 +16,9 @@ namespace BookTrackingWebLibrary
         [Required]
         public int CategoryTypeId { get; set; } //foreign key connecting Category Type
 
+        
+        public CategoryType CategoryType { get; set; } //foreign key connecting Category Type
+
         [JsonIgnore]
         public List<Book> Books { get; private set; } //added reference for books 
     }
