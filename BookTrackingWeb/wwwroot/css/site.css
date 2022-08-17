@@ -8,9 +8,11 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
-
+a.text-dark:hover {
+    color: #ffffff !important;
+}
 .main-menu {
-    background: #1a2942;
+    background: #91262f !important;
 }
 
 .box-shadow {
@@ -26,11 +28,13 @@ a.navbar-brand {
 
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
+    color: #ffffff;
     background-color: #ffffff;
     border-color: #ffffff;
 }
-
+.nav-anchor:hover, .nav-anchor:active, .nav-anchor:focus, .nav-anchor:active:focus {
+    color: #ffffff;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, form, label, table, tbody, tfoot, thead, tr, th, td, footer, header, menu, nav, section {
@@ -114,35 +118,32 @@ body {
     min-height: 40px;
 }
 
-    .grid-heading h4 {
-        color: #535a68;
-        font-size: 15px;
-        font-weight: bold;
-        display: inline-block;
-    }
-
-.grey-btn {
-    background: #767571;
-    color: #fff;
-    font-size: 12px;
-    margin-top: 15px
+.grid-heading h4 {
+    color: #535a68;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
 }
 
+
+/*table Common */
 table {
     background: #fff;
     width: 100% !important;
-    /margin:0 0 15px !important;
-    / margin: 0 0 0px !important;
+    margin:0 0 15px !important;
+     margin: 0 0 0px !important;
 }
 
-    table th {
-        background: #1a2942;
-        font-size: 0.8rem;
-        color: #fff;
-        font-weight: 600;
-    }
+table th {
+    background: #1a2942;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 600;
+}
+table .btn {
+    padding: 6px 8px;
+}
 
-/*table Common */
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th, datatable-header-cell, datatable-body-cell {
     border: none;
     border-right: 1px solid #ddd;
@@ -151,9 +152,9 @@ table {
     padding: 8px 8px 8px 8px !important;
 }
 
-    .table-bordered > tbody > tr > td:first-child, .table-bordered > tfoot > tr > td:first-child, datatable-header-cell:first-child, datatable-body-cell:first-child {
-        border-left: 1px solid #ddd;
-    }
+.table-bordered > tbody > tr > td:first-child, .table-bordered > tfoot > tr > td:first-child, datatable-header-cell:first-child, datatable-body-cell:first-child {
+    border-left: 1px solid #ddd;
+}
 
 .table-bordered > tbody > tr:last-child > td {
     border-bottom: 1px solid #ddd;
@@ -178,3 +179,101 @@ table {
     width: 100%;
     margin: 0 0 0px 0;
 }
+.custom-col {
+    padding: 10px 20px !important;
+
+}
+/* Footer */
+footer {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1a2942;
+    padding: 13px 0;
+    text-align: center;
+}
+
+    footer p {
+        color: #fff;
+    }
+/* Footer */
+
+/* Buttons */
+.btn-lg {
+    padding: 8px 10px;
+    font-size: 15px;
+    min-width: 100px;
+    font-weight: 600;
+}
+.btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 0 0 8px;
+}
+.red-btn {
+    background: #d0202f;
+    color: #fff;
+    font-size: 12px;
+}
+
+.red-btn:hover, .red-btn:active, .red-btn:focus {
+    background: #b91927;
+    color: #fff;
+}
+
+.green-btn {
+    background: #00bbb5;
+    background-color: #00bbb5;
+    color: #fff;
+    font-size: 12px;
+}
+
+.green-btn:hover, .green-btn:active, .green-btn:focus {
+    background: #019792;
+    color: #fff;
+}
+
+
+.green-btn-add {
+    background: #00bbb5;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.green-btn-add:hover, .green-btn-add:active, .green-btn-add:focus, .green-btn-add:active:focus {
+    background: #019792;
+    color: #fff;
+}
+
+.grey-btn {
+    background: #767571;
+    color: #fff;
+    font-size: 12px;
+}
+
+.grey-btn:hover, .grey-btn:active, .grey-btn:focus {
+    background: #484944;
+    color: #fff;
+}
+
+.red-btn-add {
+    background: #d0202f;
+    color: #fff;
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+}
+
+.red-btn-add:hover, .red-btn-add:active, .red-btn-add:focus, .red-btn-add:active:focus {
+    background: #d0202f;
+    color: #fff;
+}
+.section-heading {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 15px;
+}
+
