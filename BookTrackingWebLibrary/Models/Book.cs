@@ -26,5 +26,10 @@ namespace BookTrackingWebLibrary
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("BookISBN: {0}, BookTitle: {1}, BookAuthor: {2}, BookStatus: {3}, BookAddedDate: {4}, CategoryId: {5}", BookISBN, BookTitle, BookAuthor, BookStatus, BookAddedDate, CategoryId);
+        }
     }
 }
