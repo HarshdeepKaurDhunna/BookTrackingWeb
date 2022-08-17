@@ -1,0 +1,162 @@
+﻿@page
+@model BookTrackingWeb.Pages.BooksModel
+
+@{
+    ViewData["Title"] = "Books";
+}
+<div class="section-heading">
+    <a style="float: right" class="btn green-btn btn-lg" asp-page="/BookQuotes">Book Quotes</a>
+</div>
+<!-- Section Heading Ends -->
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Add/Edit Books</h4>
+    </div>
+    <!-- Grid Heading Ends -->
+
+    <div class="grid-inner">
+        <form method="post">
+            <div class="form-row">
+                <div class="row min-ht-sf">
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input placeHolder="Book Title" asp-for="book.BookTitle" class="form-control edit-status" />
+                        <span asp-validation-for="book.BookTitle" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input id="editInput" placeHolder="Book ISBN" asp-for="book.BookISBN" class="form-control edit-status" />
+                        <span asp-validation-for="book.BookISBN" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input asp-for="book.BookAuthor" placeHolder="Book Author" class="form-control edit-status" />
+                        <span asp-validation-for="book.BookAuthor" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input asp-for="book.BookAddedDate" type="date" placeHolder="Book Author" class="form-control edit-status" />
+                        <span asp-validation-for="book.BookAddedDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <select asp-for="book.BookStatus" class="form-control ">
+                            <option value="">Select Book Status</option>
+                            <option value="1">Want to Read</option>
+                            <option value="2">Currently Reading</option>
+                            <option value="3">Read</option>
+                        </select>
+                        <span asp-validation-for="book.BookStatus" class="text-danger" />
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <select asp-for="book.CategoryId" class="form-control edit-status"
+                                asp-items="@Model.CategoryTypiesSL">
+                            <option value="">Select CategoryType</option>
+                        </select>
+                        <span asp-validation-for="book.CategoryId" class="text-danger" />
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input type="hidden" asp-for="book.BookId" />
+                        <button id="addButton" type="submit" class="btn green-btn"> Save</button>
+                        <a class="btn red-btn" asp-page="/Books">Cancel</a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <!-- Form Row ENds -->
+    </div>
+    <!-- Grid Inner Ends -->
+</div>
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Books List</h4>
+    </div>
+    <div class="grid-inner">
+
+        <!-- Form Row Ends -->
+
+        <div class="form-row">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 table-col">
+                    <div class="table-responsive">
+                        <table class=" table table-bordered table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>ISBN</th>
+                                    <th>Author</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Category Type</th>
+                                    <th>Status</th>
+                                    <th>Added Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Books.Count; i++)
+                                {
+                                    var item = Model.Books[i];
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookISBN)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookAuthor)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookTitle)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Category.CategoryType.CategoryTypeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookStatus)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookAddedDate)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookId"><i class="fa fa-edit"></i></a> |
+                                            <a asp-action="Status" class="btn grey-btn" asp-route-id="@item.BookId"><i class="fa fa-tags"></i></a> |
+                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookId"><i class="fa fa-trash"></i></a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Table Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Form Row ENds -->
+
+    </div>
+    <!-- Grid Inner Ends -->
+
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.location.href.indexOf("Edit") > -1) {
+                $('#editInput').prop('disabled', true);
+            }
+            else if (window.location.href.indexOf("Status") > -1) {
+                $('.edit-status').prop('disabled', true);
+                $("#addButton").prop('value', 'Update');
+            } else {
+                $('#editInput').prop('disabled', false);
+                $('.edit-status').prop('disabled', false);
+            }
+        });
+
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+
