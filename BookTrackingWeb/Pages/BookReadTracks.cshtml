@@ -17,23 +17,28 @@
             <div class="row min-ht-sf">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <input asp-for="bookReadTrack.BookReadDate" class="form-control edit-status" />
+                    <label asp-for="bookReadTrack.BookReadDate" class="control-label"></label>
+                    <input asp-for="bookReadTrack.BookReadDate" placholder="Book Read Date" class="form-control edit-status" />
                     <span asp-validation-for="bookReadTrack.BookReadDate" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <input asp-for="bookReadTrack.BookTotalPage" class="form-control edit-status" />
+                    <label asp-for="bookReadTrack.BookTotalPage" class="control-label"></label>
+                    <input asp-for="bookReadTrack.BookTotalPage" placholder="Book Total Page" class="form-control edit-status" />
                     <span asp-validation-for="bookReadTrack.BookTotalPage" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <input asp-for="bookReadTrack.BookFromPage" class="form-control edit-status" />
+                    <label asp-for="bookReadTrack.BookFromPage" class="control-label"></label>
+                    <input asp-for="bookReadTrack.BookFromPage" placholder="Book From Page" class="form-control edit-status" />
                     <span asp-validation-for="bookReadTrack.BookFromPage" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <input asp-for="bookReadTrack.BookToPage" class="form-control edit-status" />
+                    <label asp-for="bookReadTrack.BookToPage" class="control-label"></label>
+                    <input asp-for="bookReadTrack.BookToPage" placholder="Book To Page" class="form-control edit-status" />
                     <span asp-validation-for="bookReadTrack.BookToPage" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <select asp-for="bookReadTrack.BookId" class="form-control edit-status" asp-items="ViewBag.BookId"></select>
+                    <label asp-for="bookReadTrack.BookId" class="control-label"></label>
+                    <select asp-for="bookReadTrack.BookId" placholder="" class="form-control edit-status" asp-items="ViewBag.BookId"></select>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
                     <input type="hidden" asp-for="bookReadTrack.BookReadTrackId" />
@@ -62,11 +67,11 @@
                         <table class=" table table-bordered table-stripped">
                             <thead>
                                 <tr>
-                                    <th>Book</th>
-                                    <th>Book Book Read Date</th>
-                                    <th>Book Book Total Page</th>
-                                    <th>Book Book From Page</th>
-                                    <th>Book Book To Page</th>
+                                    <th>Book Title</th>
+                                    <th>Book Read Date</th>
+                                    <th>Book Total Page</th>
+                                    <th>Book From Page</th>
+                                    <th>Book To Page</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -77,6 +82,9 @@
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Book.BookTitle)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookReadDate)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.BookTotalPage)
