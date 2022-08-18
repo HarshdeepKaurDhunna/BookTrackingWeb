@@ -5,49 +5,123 @@
     ViewData["Title"] = "BookReadTracks";
 }
 
-<h1>BookReadTracks</h1>
-
-<h4>BookReadTrack</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BookReadTrack.BookReadDate" class="control-label"></label>
-                <input asp-for="BookReadTrack.BookReadDate" class="form-control" />
-                <span asp-validation-for="BookReadTrack.BookReadDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookReadTrack.BookTotalPagesRead" class="control-label"></label>
-                <input asp-for="BookReadTrack.BookTotalPagesRead" class="form-control" />
-                <span asp-validation-for="BookReadTrack.BookTotalPagesRead" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookReadTrack.BookFromPage" class="control-label"></label>
-                <input asp-for="BookReadTrack.BookFromPage" class="form-control" />
-                <span asp-validation-for="BookReadTrack.BookFromPage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookReadTrack.BookToPage" class="control-label"></label>
-                <input asp-for="BookReadTrack.BookToPage" class="form-control" />
-                <span asp-validation-for="BookReadTrack.BookToPage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookReadTrack.BookId" class="control-label"></label>
-                <select asp-for="BookReadTrack.BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Add/Edit Book Read Tracks</h4>
     </div>
+    <!-- Grid Heading Ends -->
 </div>
+<div class="grid-inner">
+    <form method="post">
+        <div class="form-row">
+            <div class="row min-ht-sf">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input asp-for="bookReadTrack.BookReadDate" class="form-control edit-status" />
+                    <span asp-validation-for="bookReadTrack.BookReadDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input asp-for="bookReadTrack.BookTotalPage" class="form-control edit-status" />
+                    <span asp-validation-for="bookReadTrack.BookTotalPage" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input asp-for="bookReadTrack.BookFromPage" class="form-control edit-status" />
+                    <span asp-validation-for="bookReadTrack.BookFromPage" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input asp-for="bookReadTrack.BookToPage" class="form-control edit-status" />
+                    <span asp-validation-for="bookReadTrack.BookToPage" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <select asp-for="bookReadTrack.BookId" class="form-control edit-status" asp-items="ViewBag.BookId"></select>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input type="hidden" asp-for="bookReadTrack.BookReadTrackId" />
+                    <button style="margin-top: 25px" id="addButton" type="submit" class="btn green-btn"> Save</button>
+                    <a style="margin-top: 25px" class="btn red-btn" asp-page="/BookReadTracks">Cancel</a>
+                </div>
+            </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+
+        </div>
+    </form>
+</div>
+<!--List Of Book Tracks-->
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Book Tracks List</h4>
+    </div>
+    <div class="grid-inner">
+
+        <!-- Form Row Ends -->
+
+        <div class="form-row">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 table-col">
+                    <div class="table-responsive">
+                        <table class=" table table-bordered table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Book Book Read Date</th>
+                                    <th>Book Book Total Page</th>
+                                    <th>Book Book From Page</th>
+                                    <th>Book Book To Page</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.BookTrackList.Count; i++)
+                                {
+                                    var item = Model.BookTrackList[i];
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Book.BookTitle)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookTotalPage)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookFromPage)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookToPage)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-edit"></i></a> |
+                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-trash"></i></a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Table Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Form Row ENds -->
+
+    </div>
+    <!-- Grid Inner Ends -->
+
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">$(document).ready(function () {
+            if (window.location.href.indexOf("Edit") > -1) {
+                $('#editInput').prop('disabled', true);
+            }
+            else if (window.location.href.indexOf("Status") > -1) {
+                $('.edit-status').prop('disabled', true);
+                $("#addButton").prop('value', 'Update');
+            } else {
+                $('#editInput').prop('disabled', false);
+                $('.edit-status').prop('disabled', false);
+            }
+        });</script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
