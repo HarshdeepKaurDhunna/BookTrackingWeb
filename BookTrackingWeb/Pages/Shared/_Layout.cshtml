@@ -6,22 +6,22 @@
     <title>@ViewData["Title"] - BookTrackingWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
 </head>
 <body>
     <header>
-
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom main-menu box-shadow mb-4">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary main-menu border-bottom box-shadow mb-3">
             <div class="container">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li>
-                            <a class="nav-anchor nav-link text-dark" asp-area="" asp-page="/Index">BookTrackingApp</a>
+                            <a class="nav-anchor nav-link text-dark" asp-page="/Index">Dashboard</a>
                         </li>
-                        <li>
-                            <a class="nav-anchor nav-link text-dark" asp-page="/Books/Index">Books</a>
+                        <li class="nav-item">
+                            <a class="nav-anchor nav-link text-dark" asp-page="/Books">Books</a>
                         </li>
-                        <li>
-                            <a class="nav-anchor nav-link text-dark" asp-area="" asp-page="/CategoryTypes/Index">Category Type</a>
+                        <li class="nav-item">
+                            <a class="nav-anchor nav-link text-dark" asp-page="/Categories">Category Type</a>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +44,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/all.min.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,119 @@
+﻿@page
+@model BookTrackingWeb.Pages.BookQuotesModel
+
+@{
+    ViewData["Title"] = "BookQuotes";
+}
+
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Add/Edit Book Quotes</h4>
+    </div>
+    <!-- Grid Heading Ends -->
+</div>
+<div class="grid-inner">
+    <form method="post">
+        <div class="form-row">
+            <div class="row min-ht-sf">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input asp-for="bookQuote.BookPageNumber" placeHolder="Book Page Number" class="form-control edit-status" />
+                    <span asp-validation-for="bookQuote.BookPageNumber" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4 custom-col col-xs-12">
+                    <select asp-for="bookQuote.BookId" placeHolder="Select Book" class="form-control edit-status" asp-items="ViewBag.BookId"></select>
+                </div>
+            </div>
+            <div class="row min-ht-sf">
+                <div class="col-md-4 custom-col col-xs-12">
+                    <textarea asp-for="bookQuote.BookQuoteDescription" placeHolder="Book Quote Description" class="form-control edit-status"></textarea>
+                    <span asp-validation-for="bookQuote.BookQuoteDescription" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 custom-col col-xs-12">
+                    <input type="hidden" asp-for="bookQuote.BookQuoteId" />
+                    <button style="margin-top: 25px" id="addButton" type="submit" class="btn green-btn btn-lg"> Save</button>
+                    <a style="margin-top: 25px" class="btn red-btn btn-lg" asp-page="/BookQuotes">Cancel</a>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<!--List Of Book Qoutes-->
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Book Quotes List</h4>
+    </div>
+    <div class="grid-inner">
+
+        <!-- Form Row Ends -->
+
+        <div class="form-row">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 table-col">
+                    <div class="table-responsive">
+                        <table class=" table table-bordered table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Book Page Number</th>
+                                    <th>Book Quote Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.BookQuoteList.Count; i++)
+                                {
+                                    var item = Model.BookQuoteList[i];
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Book.BookTitle)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookPageNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BookQuoteDescription)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-edit"></i></a> |
+                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-trash"></i></a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Table Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Form Row ENds -->
+
+    </div>
+    <!-- Grid Inner Ends -->
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">$(document).ready(function () {
+            if (window.location.href.indexOf("Edit") > -1) {
+                $('#editInput').prop('disabled', true);
+            }
+            else if (window.location.href.indexOf("Status") > -1) {
+                $('.edit-status').prop('disabled', true);
+                $("#addButton").prop('value', 'Update');
+            } else {
+                $('#editInput').prop('disabled', false);
+                $('.edit-status').prop('disabled', false);
+            }
+        });</script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
