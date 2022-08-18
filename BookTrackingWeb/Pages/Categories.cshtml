@@ -1,0 +1,109 @@
+@page
+@model BookTrackingWeb.Pages.CategoriesModel
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Add/Edit Category</h4>
+    </div>
+    <!-- Grid Heading Ends -->
+
+    <div class="grid-inner">
+        <form method="post">
+            <div class="form-row">
+                <div class="row min-ht-sf">
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input placeHolder="Category Name" id="editCTInput" asp-for="category.CategoryName" class="form-control edit-status" />
+                        <span asp-validation-for="category.CategoryName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <select asp-for="category.CategoryTypeId" class="form-control edit-status">
+                            <option value="">Select Category Type</option>
+                            <option value=1>Fiction</option>
+                            <option value=2>Non-Fiction</option>
+                        </select>
+                        <span asp-validation-for="category.CategoryTypeId" class="text-danger" />
+                    </div>
+                    <div class="col-md-4 custom-col col-xs-12">
+                        <input type="hidden" asp-for="category.CategoryId" />
+                        <button id="addCTButton" type="submit" class="btn green-btn btn-lg"> Save</button>
+                        <a class="btn red-btn btn-lg" asp-page="/Categories">Cancel</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <!-- Form Row ENds -->
+    </div>
+    <!-- Grid Inner Ends -->
+</div>
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>category List</h4>
+    </div>
+    <div class="grid-inner">
+
+        <!-- Form Row Ends -->
+
+        <div class="form-row">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 table-col">
+                    <div class="table-responsive">
+                        <table class=" table table-bordered table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Category Type Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Categories.Count; i++)
+                                {
+                                    var item = Model.Categories[i];
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CategoryName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CategoryType.CategoryTypeName)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-edit"></i></a> |
+                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-trash"></i></a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Table Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Form Row ENds -->
+
+    </div>
+    <!-- Grid Inner Ends -->
+
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.location.href.indexOf("Edit") > -1) {
+                $('#editCTInput').prop('disabled', true);
+                $("#addCTButton").prop('value', 'Edit');
+            }
+        });
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    </script>
+}
