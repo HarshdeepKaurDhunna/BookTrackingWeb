@@ -53,5 +53,29 @@ namespace BookTrackingWebAPI.Controllers
                 return BadRequest("Invalid input data in the request");
             }
         }
+
+        [HttpGet("bookTrack")]
+        public ActionResult fetchBookTrack(int bookId)
+        {
+            try
+            {
+                List<BookReadTrack> bookReadTracks = _db.BookReadTracks.Where(track => track.BookId == bookId).OrderByDescending(track => track.BookReadDate).ToList();
+                return Ok(bookReadTracks);
+            }
+            catch (InvalidOperationException)
+            {
+                return BadRequest("Could not find the requested book read track");
+            }
+        }
+
+        [HttpGet("bookTracks")]
+        public ActionResult fetchBookTracks()
+        {
+            List<BookReadTrack> bookReadTracks = new List<BookReadTrack>();
+
+            bookReadTracks = _db.BookReadTracks.ToList();
+
+            return Ok(bookReadTracks);
+        }
     }
 }
