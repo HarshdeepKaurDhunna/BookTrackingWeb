@@ -90,7 +90,7 @@ namespace BookTrackingWeb.Pages
                 if (existingbookTrack != null)
                 {
                     existingbookTrack.BookReadDate = bookReadTrack.BookReadDate;
-                    existingbookTrack.BookTotalPage = bookReadTrack.BookTotalPage;
+                    existingbookTrack.BookTotalPagesRead = bookReadTrack.BookTotalPagesRead;
                     existingbookTrack.BookFromPage = bookReadTrack.BookFromPage;
                     existingbookTrack.BookToPage = bookReadTrack.BookToPage;
                     existingbookTrack.BookId = bookReadTrack.BookId;
