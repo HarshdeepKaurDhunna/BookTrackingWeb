@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BookTrackingWebData.Data;
 using BookTrackingWebLibrary;
@@ -45,6 +46,30 @@ namespace BookTrackingWebAPI.Controllers
             {
                 return BadRequest("Invalid input data in the request");
             }
+        }
+
+        [HttpGet("bookQuote")]
+        public ActionResult fetchBookQuotes(int bookId)
+        {
+            try
+            {
+                List<BookQuote> bookQuote = _db.BookQuotes.Where(track => track.BookId == bookId).ToList();
+                return Ok(bookQuote);
+            }
+            catch (InvalidOperationException)
+            {
+                return BadRequest("Could not find the requested book quote");
+            }
+        }
+
+        [HttpGet("bookQuote")]
+        public ActionResult fetchBookQuotes()
+        {
+            List<BookQuote> bookQuotes = new List<BookQuote>();
+
+            bookQuotes = _db.BookQuotes.ToList();
+
+            return Ok(bookQuotes);
         }
     }
 }
