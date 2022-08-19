@@ -75,15 +75,15 @@ body {
         top: 0;
     }
 
-    .db-box h2 {
+    .db-box > h2 > span {
         font-size: 15px;
-        margin-bottom: 5px;
         color: #777;
+   
     }
 
 .fig-facts {
-    display: inline-block;
-    font-size: 30px;
+    color: #777;
+    font-size: 17px;
     font-weight: bold;
 }
 

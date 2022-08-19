@@ -1,35 +1,74 @@
 ﻿@page
+@using Newtonsoft.Json
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 
+<div class="grid-inner">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6 col-xs-12 db-row">
+                <div class="db-box cl1">
+                    <h2 class="fig-facts">Total Books:  <span>@Html.Raw(Model.totalBooks)</span></h2>
 
-<div class="form-group">
-    <div class="row">
-        <div class="col-md-6 col-xs-12 db-row">
-            <div class="db-box cl1">
-                <h2>Total Books</h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 col-xs-12 db-row">
-            <div class="db-box cl3">
-                <h2>Currenty Reading Books</h2>
+            <div class="col-md-6 col-xs-12 db-row">
+                <div class="db-box cl3">
+                    <h2 class="fig-facts">Currenty Reading Books:  <span>@Html.Raw(Model.currentlyReadBooks)</span></h2>
 
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 col-xs-12 db-row">
-            <div class="db-box cl2">
-                <h2>Books To be read</h2>
+            <div class="col-md-6 col-xs-12 db-row">
+                <div class="db-box cl2">
+                    <h2 class="fig-facts">Books To be read: <span>@Html.Raw(Model.wantReadBooks)</span></h2>
 
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 col-xs-12 db-row">
-            <div class="db-box cl4">
-                <h2>Read Books</h2>
+            <div class="col-md-6 col-xs-12 db-row">
+                <div class="db-box cl4">
+                    <h2 class="fig-facts">Read Books: <span>@Html.Raw(Model.readBooks)</span></h2>
 
+                </div>
             </div>
         </div>
     </div>
 </div>
+<div class="grid-box">
+    <div class="grid-heading">
+        <h4>Books Reading Graph</h4>
+    </div>
+    <!-- Grid Heading Ends -->
+</div>
+<div class="grid-inner">
+    <div class="form-group">
+        <canvas id="Chart1" width="400" height="70"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ctx = document.getElementById("Chart1");
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(@Model.Labels)),
+                    datasets: [{
+                        label: 'Book Read Pages',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: @Html.Raw(Json.Serialize(@Model.Data))
+                    }]
+                }
+            });
+        });
+
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

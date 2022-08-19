@@ -6,6 +6,7 @@
 }
 <div class="section-heading">
     <a style="float: right" class="btn green-btn btn-lg" asp-page="/BookQuotes">Book Quotes</a>
+    <a style="float: right" class="btn green-btn btn-lg" asp-page="/BookReadTracks">Book Quotes</a>
 </div>
 <!-- Section Heading Ends -->
 <div class="grid-box">
@@ -118,8 +119,8 @@
                                             @Html.DisplayFor(modelItem => item.BookAddedDate)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookId"><i class="fa fa-edit"></i></a> |
-                                            <a asp-action="Status" class="btn grey-btn" asp-route-id="@item.BookId"><i class="fa fa-tags"></i></a> |
+                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookId"><i class="fa fa-edit"></i></a>
+                                            <a asp-action="Status" class="btn grey-btn" asp-route-id="@item.BookId"><i class="fa fa-tags"></i></a>
                                             <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookId"><i class="fa fa-trash"></i></a>
 
                                         </td>
