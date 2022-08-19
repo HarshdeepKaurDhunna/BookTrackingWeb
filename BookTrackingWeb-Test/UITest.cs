@@ -65,7 +65,7 @@ namespace BookTrackingWeb
         public void TestingBooksButton()
         {
             _driver.Navigate().GoToUrl("https://localhost:5001/");
-            Assert.IsTrue(_driver.FindElement(By.Name("Book")).Displayed);
+            Assert.IsTrue(_driver.FindElement(By.Id("Book")).Displayed);
 
             _driver.Quit();
         }
@@ -74,7 +74,7 @@ namespace BookTrackingWeb
         public void TestingCategoryButton()
         {
             _driver.Navigate().GoToUrl("https://localhost:5001/");
-            Assert.IsTrue(_driver.FindElement(By.Name("Category")).Displayed);
+            Assert.IsTrue(_driver.FindElement(By.Id("Category")).Displayed);
 
             _driver.Quit();
         }
