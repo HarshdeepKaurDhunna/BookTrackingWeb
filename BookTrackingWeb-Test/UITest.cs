@@ -80,7 +80,7 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingCategoryButton()
         {
-            _driver.Navigate().GoToUrl("https://localhost:44395/");
+            _driver.Navigate().GoToUrl("https://localhost:44395/index");
             Assert.IsTrue(_driver.FindElement(By.Id("Category")).Displayed);
 
             _driver.Quit();
@@ -106,6 +106,71 @@ namespace BookTrackingWeb
         {
             _driver.Navigate().GoToUrl("https://localhost:44395/BookQuotes");
             Assert.IsTrue(_driver.FindElement(By.Id("bookQuotesDelete")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookReadTracksAddButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookReadTracks");
+            Assert.IsTrue(_driver.FindElement(By.Id("addButton")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookReadTracksEditButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookReadTracks");
+            Assert.IsTrue(_driver.FindElement(By.Id("bookReadTracksEdit")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookReadTracksDeleteButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookReadTracks");
+            Assert.IsTrue(_driver.FindElement(By.Id("bookReadTracksDelete")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookAddButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Books");
+            Assert.IsTrue(_driver.FindElement(By.Id("addButton")).Displayed);
+
+            _driver.Quit();
+        }
+
+       
+
+             [TestMethod]
+        public void TestingBookEditButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Books");
+            Assert.IsTrue(_driver.FindElement(By.Id("booksEdit")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookDeleteButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Books");
+            Assert.IsTrue(_driver.FindElement(By.Id("booksDelete")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingBookStatusButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Books");
+            Assert.IsTrue(_driver.FindElement(By.Id("booksStatus")).Displayed);
 
             _driver.Quit();
         }
