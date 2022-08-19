@@ -22,9 +22,9 @@
                     <span asp-validation-for="bookReadTrack.BookReadDate" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
-                    <label asp-for="bookReadTrack.BookTotalPagesRead" class="control-label"></label>
-                    <input asp-for="bookReadTrack.BookTotalPagesRead" placholder="Book Total Page" class="form-control edit-status" />
-                    <span asp-validation-for="bookReadTrack.BookTotalPagesRead" class="text-danger"></span>
+                    <label asp-for="bookReadTrack.BookTotalPage" class="control-label"></label>
+                    <input asp-for="bookReadTrack.BookTotalPage" placholder="Book Total Page" class="form-control edit-status" />
+                    <span asp-validation-for="bookReadTrack.BookTotalPage" class="text-danger"></span>
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
                     <label asp-for="bookReadTrack.BookFromPage" class="control-label"></label>
@@ -87,7 +87,7 @@
                                             @Html.DisplayFor(modelItem => item.BookReadDate)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.BookTotalPagesRead)
+                                            @Html.DisplayFor(modelItem => item.BookTotalPage)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.BookFromPage)
