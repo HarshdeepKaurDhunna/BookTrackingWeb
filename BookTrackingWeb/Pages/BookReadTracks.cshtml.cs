@@ -43,7 +43,10 @@ namespace BookTrackingWeb.Pages
 
 
         }
+        /*
+        @method: Delete BookReadTrack
 
+        */
         public async Task<IActionResult> OnGetDeleteAsync(int id)
         {
             if (id == null)
@@ -81,6 +84,7 @@ namespace BookTrackingWeb.Pages
             return Page();
         }
 
+        // Method to add and update BookReadTrack object
         public async Task<IActionResult> OnPostAsync(BookReadTrack bookReadTrack)
         {
 
@@ -127,6 +131,8 @@ namespace BookTrackingWeb.Pages
             }
             return RedirectToPage("/BookReadTracks");
         }
+
+        //@method to check if exists in DB or not
         private bool BookTrackExists(int id)
         {
             return _context.BookReadTracks.Any(e => e.BookReadTrackId == id);

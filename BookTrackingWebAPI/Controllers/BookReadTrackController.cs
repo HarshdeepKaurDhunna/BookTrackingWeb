@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BookTrackingWebData.Data;
 using BookTrackingWebLibrary;
+using BookTrackingWebLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -76,6 +77,34 @@ namespace BookTrackingWebAPI.Controllers
             bookReadTracks = _db.BookReadTracks.ToList();
 
             return Ok(bookReadTracks);
+        }
+
+
+        [HttpGet("BookTrackSummary")]
+        public ActionResult getBookTrackSummary()
+        {
+            try
+            {
+                List<Book> Books = _db.Books.ToList();
+
+                BookTrackSummary bookTrackSummary = new BookTrackSummary();
+
+                foreach (Book book in Books)
+                {
+                    BookReadTrack trackingForBook = _db.BookReadTracks.Where(track => track.BookId == book.BookId).OrderByDescending(track => track.BookReadDate).Single();
+                    bookTrackSummary.BookId = book.BookId;
+                    bookTrackSummary.BookISBN = book.BookISBN;
+                    bookTrackSummary.BookTitle = book.BookTitle;
+                    bookTrackSummary.TotalPages = book.TotalPages;
+                    bookTrackSummary.LastReadOn = trackingForBook.BookReadDate;
+                    bookTrackSummary.RemainingPages = book.TotalPages - trackingForBook.BookToPage;      
+                }
+                return Ok(bookTrackSummary);
+            }
+            catch (InvalidOperationException)
+            {
+                return BadRequest("Could not find the requested book track summary");
+            }
         }
     }
 }
