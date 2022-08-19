@@ -96,8 +96,8 @@
                                             @Html.DisplayFor(modelItem => item.BookToPage)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-edit"></i></a>
-                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-trash"></i></a>
+                                            <a id="bookReadTracksEdit" asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-edit"></i></a>
+                                            <a id="bookReadTracksDelete" asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookReadTrackId"><i class="fa fa-trash"></i></a>
 
                                         </td>
                                     </tr>

@@ -118,9 +118,9 @@
                                             @Html.DisplayFor(modelItem => item.BookAddedDate)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookId"><i class="fa fa-edit"></i></a>
-                                            <a asp-action="Status" class="btn grey-btn" asp-route-id="@item.BookId"><i class="fa fa-tags"></i></a>
-                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookId"><i class="fa fa-trash"></i></a>
+                                            <a id="booksEdit" asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookId"><i class="fa fa-edit"></i></a>
+                                            <a id="booksStatus" asp-action="Status" class="btn grey-btn" asp-route-id="@item.BookId"><i class="fa fa-tags"></i></a>
+                                            <a id="booksDelete" asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookId"><i class="fa fa-trash"></i></a>
 
                                         </td>
                                     </tr>
