@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-namespace Book_Tracking_Application_Test
+namespace BookTrackingWeb
 {
     public class TestFixture<TStartup> : IDisposable
     {

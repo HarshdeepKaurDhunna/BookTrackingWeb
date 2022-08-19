@@ -1,7 +1,8 @@
-﻿using Book_Tracking_Application;
+﻿using BookTrackingWeb;
+using BookTrackingWebAPI;
 using System.Net.Http;
 using Xunit;
-namespace Book_Tracking_Application_Test
+namespace BookTrackingWeb
 {
     public class CategoryControllerTests : IClassFixture<TestFixture<Startup>>
     {

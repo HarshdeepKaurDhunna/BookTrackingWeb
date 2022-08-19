@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Assert = Xunit.Assert;
 
-namespace Book_Tracking_Application_Test
+namespace BookTrackingWeb
 {
     [TestClass]
     public class UnitTest
@@ -27,11 +27,11 @@ namespace Book_Tracking_Application_Test
         }
 
         [Theory]
-        [InlineData("/")]
         [InlineData("/Index")]
-        [InlineData("/About")]
-        [InlineData("/Privacy")]
-        [InlineData("/Contact")]
+        [InlineData("/Books")]
+        [InlineData("/Categories")]
+        [InlineData("/BookQuotes")]
+        [InlineData("/BookReadTracks")]
         public async Task GetEndpointsReturnSuccessAndCorrectContentType(string url)
         {
 
