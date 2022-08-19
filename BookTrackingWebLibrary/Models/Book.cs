@@ -23,16 +23,13 @@ namespace BookTrackingWebLibrary
         [DataType(DataType.Date)]
         public DateTime BookAddedDate { get; set; } //Date that the book was added
 
-        [Required]
-        public int TotalPages { get; set; }
-
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
 
         public override string ToString()
         {
-            return string.Format("BookISBN: {0}, BookTitle: {1}, BookAuthor: {2}, BookStatus: {3}, BookAddedDate: {4}, TotalPages: {5}, CategoryId: {6}", BookISBN, BookTitle, BookAuthor, BookStatus, BookAddedDate, TotalPages, CategoryId);
+            return string.Format("BookISBN: {0}, BookTitle: {1}, BookAuthor: {2}, BookStatus: {3}, BookAddedDate: {4}, TotalPages: {5}, CategoryId: {6}", BookISBN, BookTitle, BookAuthor, BookStatus, BookAddedDate, CategoryId);
         }
     }
 }
