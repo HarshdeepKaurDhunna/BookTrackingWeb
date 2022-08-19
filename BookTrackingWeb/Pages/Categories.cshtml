@@ -75,8 +75,8 @@
                                             @Html.DisplayFor(modelItem => item.CategoryType.CategoryTypeName)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-edit"></i></a> |
-                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-trash"></i></a>
+                                            <a id="categoriesEdit" asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-edit"></i></a> |
+                                            <a id="categoriesDelete"asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.CategoryId"><i class="fa fa-trash"></i></a>
 
                                         </td>
                                     </tr>
