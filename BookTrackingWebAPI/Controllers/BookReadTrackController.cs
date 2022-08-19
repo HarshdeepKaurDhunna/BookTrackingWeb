@@ -95,9 +95,9 @@ namespace BookTrackingWebAPI.Controllers
                     bookTrackSummary.BookId = book.BookId;
                     bookTrackSummary.BookISBN = book.BookISBN;
                     bookTrackSummary.BookTitle = book.BookTitle;
-                    bookTrackSummary.TotalPages = book.TotalPages;
                     bookTrackSummary.LastReadOn = trackingForBook.BookReadDate;
-                    bookTrackSummary.RemainingPages = book.TotalPages - trackingForBook.BookToPage;      
+                    bookTrackSummary.TotalPages = trackingForBook.BookTotalPagesRead;
+                    bookTrackSummary.RemainingPages = trackingForBook.BookTotalPagesRead - trackingForBook.BookToPage;
                 }
                 return Ok(bookTrackSummary);
             }
