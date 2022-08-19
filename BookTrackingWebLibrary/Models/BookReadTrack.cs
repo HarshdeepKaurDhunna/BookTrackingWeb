@@ -14,7 +14,7 @@ namespace BookTrackingWebLibrary
         public DateTime BookReadDate { get; set; } //Date 
 
         [Required]
-        public int BookTotalPage { get; set; } //field for total pages read
+        public int BookTotalPagesRead { get; set; } //field for total pages read
 
         [Required]
         public int BookFromPage { get; set; } //From n to to calcualte how much user have read
