@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-4 custom-col col-xs-12">
                     <input type="hidden" asp-for="bookQuote.BookQuoteId" />
-                    <button style="margin-top: 25px" id="addButton" type="submit" class="btn green-btn btn-lg"> Save</button>
+                    <button id="bookQuotesAdd" style="margin-top: 25px" id="addButton" type="submit" class="btn green-btn btn-lg"> Save</button>
                     <a style="margin-top: 25px" class="btn red-btn btn-lg" asp-page="/BookQuotes">Cancel</a>
                 </div>
             </div>
@@ -80,8 +80,8 @@
                                             @Html.DisplayFor(modelItem => item.BookQuoteDescription)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-edit"></i></a> |
-                                            <a asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-trash"></i></a>
+                                            <a id="bookQuotesEdit" asp-action="Edit" class="btn green-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-edit"></i></a> |
+                                            <a id="bookQuotesDelete" asp-action="Delete" class="btn red-btn-add" asp-route-id="@item.BookQuoteId"><i class="fa fa-trash"></i></a>
 
                                         </td>
                                     </tr>
