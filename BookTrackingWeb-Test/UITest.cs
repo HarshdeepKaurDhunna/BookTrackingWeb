@@ -15,18 +15,25 @@ namespace BookTrackingWeb
     {
         IWebDriver _driver;
 
+        /* [TestInitialize]
+         public void Startup()
+         {
+             new DriverManager().SetUpDriver(new FirefoxConfig());
+             _driver = new FirefoxDriver();
+         }*/
+
         [TestInitialize]
         public void Startup()
         {
-            new DriverManager().SetUpDriver(new FirefoxConfig());
-            _driver = new FirefoxDriver();
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            _driver = new ChromeDriver();
         }
 
         [TestMethod]
         public void TestingBooksTitle()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/Books/");
-            Assert.AreEqual("Books", _driver.Title);
+            _driver.Navigate().GoToUrl("https://localhost:44395/Books");
+            Assert.AreEqual("Books - BookTrackingWeb", _driver.Title);
 
             _driver.Quit();
 
@@ -35,8 +42,8 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingCategoryTitle()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/Categories/");
-            Assert.AreEqual("Categories", _driver.Title);
+            _driver.Navigate().GoToUrl("https://localhost:44395/Categories");
+            Assert.AreEqual("Categories - BookTrackingWeb", _driver.Title);
 
             _driver.Quit();
 
@@ -45,8 +52,8 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingBookQuotesTitle()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/BookQuotes/");
-            Assert.AreEqual("BookQuotes", _driver.Title);
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookQuotes");
+            Assert.AreEqual("BookQuotes - BookTrackingWeb", _driver.Title);
 
             _driver.Quit();
 
@@ -55,8 +62,8 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingBookReadTracksTitle()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/BookReadTracks/");
-            Assert.AreEqual("BookReadTracks", _driver.Title);
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookReadTracks");
+            Assert.AreEqual("BookReadTracks - BookTrackingWeb", _driver.Title);
 
             _driver.Quit();
         }
@@ -64,8 +71,8 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingBooksButton()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/");
-            Assert.IsTrue(_driver.FindElement(By.Id("Book")).Displayed);
+            _driver.Navigate().GoToUrl("https://localhost:44395/index");
+            Assert.IsTrue(_driver.FindElement(By.Id("Books")).Displayed);
 
             _driver.Quit();
         }
@@ -73,13 +80,34 @@ namespace BookTrackingWeb
         [TestMethod]
         public void TestingCategoryButton()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/");
+            _driver.Navigate().GoToUrl("https://localhost:44395/");
             Assert.IsTrue(_driver.FindElement(By.Id("Category")).Displayed);
 
             _driver.Quit();
         }
+        [TestMethod]
+        public void TestingBookQuotesAddButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookQuotes");
+            Assert.IsTrue(_driver.FindElement(By.Id("bookQuotesAdd")).Displayed);
 
+            _driver.Quit();
+        }
+        [TestMethod]
+        public void TestingBookQuotesEditButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookQuotes");
+            Assert.IsTrue(_driver.FindElement(By.Id("bookQuotesEdit")).Displayed);
 
+            _driver.Quit();
+        }
+        [TestMethod]
+        public void TestingBookQuotesDeleteButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/BookQuotes");
+            Assert.IsTrue(_driver.FindElement(By.Id("bookQuotesDelete")).Displayed);
+
+            _driver.Quit();
+        }
     }
 }
-
