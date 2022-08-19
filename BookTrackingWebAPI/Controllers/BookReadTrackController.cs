@@ -35,7 +35,7 @@ namespace BookTrackingWebAPI.Controllers
 
                     BookReadTrack lastTrackingEntryForBook = _db.BookReadTracks.Where(track => track.BookId == bookId).OrderByDescending(track => track.BookReadDate).First();
 
-                    bookReadTrack.BookTotalPagesRead = totalPagesRead;
+                    bookReadTrack.BookTotalPage = totalPagesRead;
 
                     bookReadTrack.BookFromPage = lastTrackingEntryForBook.BookToPage;
                     bookReadTrack.BookToPage = lastTrackingEntryForBook.BookToPage + totalPagesRead;
@@ -96,8 +96,8 @@ namespace BookTrackingWebAPI.Controllers
                     bookTrackSummary.BookISBN = book.BookISBN;
                     bookTrackSummary.BookTitle = book.BookTitle;
                     bookTrackSummary.LastReadOn = trackingForBook.BookReadDate;
-                    bookTrackSummary.TotalPages = trackingForBook.BookTotalPagesRead;
-                    bookTrackSummary.RemainingPages = trackingForBook.BookTotalPagesRead - trackingForBook.BookToPage;
+                    bookTrackSummary.TotalPages = trackingForBook.BookTotalPage;
+                    bookTrackSummary.RemainingPages = trackingForBook.BookTotalPage - trackingForBook.BookToPage;
                 }
                 return Ok(bookTrackSummary);
             }
