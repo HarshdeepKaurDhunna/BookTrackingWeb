@@ -174,5 +174,33 @@ namespace BookTrackingWeb
 
             _driver.Quit();
         }
+
+
+        [TestMethod]
+        public void TestingCategoryAddButton()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Categories");
+            Assert.IsTrue(_driver.FindElement(By.Id("addCTButton")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingCategoryEdit()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Categories");
+            Assert.IsTrue(_driver.FindElement(By.Id("categoriesEdit")).Displayed);
+
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void TestingCategoryDelete()
+        {
+            _driver.Navigate().GoToUrl("https://localhost:44395/Categories");
+            Assert.IsTrue(_driver.FindElement(By.Id("categoriesDelete")).Displayed);
+
+            _driver.Quit();
+        }
     }
 }
